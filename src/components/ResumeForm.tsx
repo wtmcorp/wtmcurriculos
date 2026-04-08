@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ResumeData, Experience, Education, Course } from '../types';
+import { extractTextFromPdf } from '../utils/pdfParser';
+import { Upload, FileText, Loader2 } from 'lucide-react';
 
 interface ResumeFormProps {
   data: ResumeData;
@@ -9,6 +11,39 @@ interface ResumeFormProps {
 
 export const ResumeForm: React.FC<ResumeFormProps> = ({ data, setData, onAnalyze }) => {
   const [activeTab, setActiveTab] = useState<'info' | 'experience' | 'education' | 'skills' | 'target'>('info');
+  const [isImporting, setIsImporting] = useState(false);
+
+  const handlePdfUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsImporting(true);
+    try {
+      const text = await extractTextFromPdf(file);
+      
+      const nameMatch = text.split('\n')[0]; 
+      const emailMatch = text.match(/[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}/);
+      const phoneMatch = text.match(/(\(?\d{2}\)?\s?\d{4,5}-?\d{4})/);
+
+      setData(prev => ({
+        ...prev,
+        personalInfo: {
+          ...prev.personalInfo,
+          fullName: nameMatch.trim().slice(0, 50),
+          email: emailMatch ? emailMatch[0] : prev.personalInfo.email,
+          phone: phoneMatch ? phoneMatch[0] : prev.personalInfo.phone,
+        },
+        objective: `EXTRAÍDO DO SEU PDF:\n\n\n${text.slice(0, 1500)}...`
+      }));
+      
+      alert('PDF processado! Os dados básicos foram preenchidos e o texto completo está no campo "Resumo" para você organizar.');
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao processar PDF. Certifique-se que o arquivo não está protegido por senha.');
+    } finally {
+      setIsImporting(false);
+    }
+  };
 
   const updateInfo = (field: string, value: string) => {
     setData((prev) => ({
@@ -53,6 +88,16 @@ export const ResumeForm: React.FC<ResumeFormProps> = ({ data, setData, onAnalyze
       <div className="tab-content" style={{ minHeight: '60vh' }}>
         {activeTab === 'info' && (
           <div className="fade-in">
+            <div style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(59, 130, 246, 0.05)', border: '2px dashed var(--border)', borderRadius: '12px', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1rem', color: 'var(--primary)', marginBottom: '0.5rem' }}>Já possui um currículo?</h3>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Importe seu PDF e nós tentamos preencher os dados para você.</p>
+              
+              <label className="btn btn-secondary" style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                {isImporting ? <Loader2 className="animate-spin" size={18} /> : <FileText size={18} />}
+                {isImporting ? 'Processando...' : 'Selecionar PDF'}
+                <input type="file" accept=".pdf" onChange={handlePdfUpload} style={{ display: 'none' }} disabled={isImporting} />
+              </label>
+            </div>
             <h3 style={{ marginBottom: '1.5rem', fontSize: '1.2rem' }}>Dados de Contato</h3>
             <div className="form-group">
               <label>Nome Completo</label>
