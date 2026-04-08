@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResumeData } from '../types';
-import { Phone, Mail, MapPin, Linkedin, Briefcase, GraduationCap, Award, Star } from 'lucide-react';
+import { Phone, Mail, MapPin, Link, Briefcase, GraduationCap, Award, Star } from 'lucide-react';
 
 interface ResumePreviewProps {
   data: ResumeData;
@@ -48,7 +48,7 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, mode }) => {
         )}
         {personalInfo.linkedin && (
           <div className="contact-item">
-            {mode === 'hybrid' && <Linkedin size={12} />}
+            {mode === 'hybrid' && <Link size={12} />}
             <span>{personalInfo.linkedin}</span>
           </div>
         )}
