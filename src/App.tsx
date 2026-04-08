@@ -18,6 +18,8 @@ const INITIAL_DATA: ResumeData = {
   softskills: []
 }
 
+import { LinkedInGenerator } from './components/LinkedInGenerator'
+
 function App() {
   const [data, setData] = useState<ResumeData>(INITIAL_DATA)
   const [score, setScore] = useState<AtsScore | null>(null)
@@ -37,8 +39,8 @@ function App() {
       <div className="app-container">
         <div className="left-panel form-section no-print">
           <header className="app-header">
-            <h1>ATSMax</h1>
-            <p>Gerador de Currículos de Alta Performance</p>
+            <h1>ATSMax <span style={{ color: '#60a5fa', fontSize: '1rem', fontWeight: 400 }}>Pro</span></h1>
+            <p>Seu currículo no topo dos algoritmos e na mão dos recrutadores.</p>
           </header>
           
           <ResumeForm data={data} setData={setData} onAnalyze={handleAnalyze} />
@@ -61,9 +63,14 @@ function App() {
             <button className="btn-print" onClick={handlePrint}>Exportar PDF</button>
           </div>
 
-          {score && <ScorePanel score={score} className="no-print" />}
+          {score && (
+            <div style={{ width: '100%', maxWidth: '800px' }}>
+              <ScorePanel score={score} className="no-print" />
+              <LinkedInGenerator data={data} />
+            </div>
+          )}
           
-          <div className={`resume-wrapper ${previewMode}-mode`}>
+          <div className={`resume-wrapper ${previewMode}-mode`} style={{ marginTop: score ? '2rem' : '0' }}>
             <ResumePreview data={data} mode={previewMode} />
           </div>
         </div>
