@@ -1,7 +1,11 @@
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Updated: Using a more robust CDN link and ensuring worker is properly initialized
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+// Updated: Using Vite's URL import for the worker. This ensures the worker is 
+// bundled and served correctly from the same origin, avoiding CORS or 404 issues in production.
+// @ts-ignore
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export async function extractTextFromPdf(file: File): Promise<string> {
   try {
@@ -19,15 +23,21 @@ export async function extractTextFromPdf(file: File): Promise<string> {
       const page = await pdf.getPage(i);
       const textContent = await page.getTextContent();
       const pageText = textContent.items
-        .map((item: any) => item.str)
+        .map((item: any) => {
+           if ('str' in item) return item.str;
+           return '';
+        })
         .join(' ');
       fullText += pageText + '\n';
     }
     
+    if (!fullText.trim()) throw new Error('Não foi possível extrair texto legível deste PDF.');
+    
     return fullText;
   } catch (error) {
-    console.error('PDF.js Error:', error);
-    throw new Error('Falha na extração: ' + (error instanceof Error ? error.message : 'Arquivo corrompido ou formato incompatível'));
+    console.error('PDF.js Detailed Error:', error);
+    const msg = error instanceof Error ? error.message : 'Erro desconhecido';
+    throw new Error(`Falha na extração (${msg}). Tente copiar e colar o texto manualmente caso o erro persista.`);
   }
 }
 
