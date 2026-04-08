@@ -218,28 +218,28 @@ textarea.form-control {
 .hybrid-mode .resume-doc {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  font-size: 10pt;
-  line-height: 1.6;
+  font-size: 9.5pt; /* Slightly smaller for 1-page fit */
+  line-height: 1.45;
 }
 
 .hybrid-mode h1 {
-  font-size: 28pt;
+  font-size: 24pt;
   color: #0f172a;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-weight: 800;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   text-align: left;
 }
 
 .hybrid-mode .contact-info {
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  font-size: 9pt;
+  font-size: 8.5pt;
   color: #475569;
   border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 }
 
 .hybrid-mode .contact-item {
@@ -249,16 +249,16 @@ textarea.form-control {
 }
 
 .hybrid-mode .section {
-  margin-bottom: 20px;
+  margin-bottom: 14px; /* Tighter section spacing */
 }
 
 .hybrid-mode h2 {
-  font-size: 11pt;
+  font-size: 10pt;
   color: #2563eb;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  letter-spacing: 1.2px;
+  margin-top: 16px;
+  margin-bottom: 8px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -273,7 +273,7 @@ textarea.form-control {
 }
 
 .hybrid-mode h3 {
-  font-size: 11pt;
+  font-size: 10pt;
   font-weight: 700;
   color: #0f172a;
 }
@@ -282,31 +282,30 @@ textarea.form-control {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .hybrid-mode .role-title {
   font-weight: 600;
   color: #334155;
-  font-size: 10pt;
-  margin-bottom: 6px;
+  font-size: 9.5pt;
+  margin-bottom: 4px;
 }
 
 .hybrid-mode .date-loc {
   color: #64748b;
-  font-size: 9pt;
-  font-weight: 500;
+  font-size: 8.5pt;
 }
 
 .hybrid-mode ul {
-  padding-left: 1rem;
+  padding-left: 0.8rem;
   list-style-type: none;
 }
 
 .hybrid-mode li {
   position: relative;
-  margin-bottom: 4px;
-  padding-left: 12px;
+  margin-bottom: 3px;
+  padding-left: 10px;
 }
 
 .hybrid-mode li::before {
@@ -314,58 +313,9 @@ textarea.form-control {
   position: absolute;
   left: 0;
   color: #3b82f6;
-  font-weight: bold;
 }
 
-
-/* Score Panel */
-.score-panel {
-  width: 100%;
-  max-width: 800px;
-  background: var(--panel-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  border: 1px solid var(--border);
-}
-
-.score-header h3 {
-  color: white;
-}
-
-.badge-info { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
-.badge-warning { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.2); }
-
-.suggestions-list {
-  background: rgba(15, 23, 42, 0.4);
-  padding: 1.25rem;
-  border-radius: 12px;
-  margin-top: 1.5rem;
-  border: 1px solid var(--border);
-}
-
-.suggestions-list h4 { color: white; }
-.suggestions-list ul { color: var(--text-muted); }
-
-/* LinkedIn Post Area */
-.linkedin-card {
-  background: #0077b520;
-  border: 1px solid #0077b540;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 2rem;
-}
-
-.linkedin-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
-  color: #0077b5;
-}
-
-/* Print Media Query */
+/* Print Media Query - Forced 1 Page */
 @media print {
   .no-print {
     display: none !important;
@@ -382,11 +332,20 @@ textarea.form-control {
   .resume-wrapper {
     box-shadow: none;
     margin: 0;
-    padding: 0;
+    padding: 0; /* Let @page handle margins */
     width: 100%;
     max-width: none;
+    min-height: auto;
   }
   @page {
-    margin: 1.5cm;
+    margin: 1cm; /* Tight margins for 1-page */
+    size: A4 portrait;
+  }
+  .resume-doc {
+    font-size: 9pt !important; /* Force smaller text on print */
+  }
+  .section {
+    margin-bottom: 10px !important;
   }
 }
+
