@@ -10,38 +10,38 @@ const INITIAL_DATA: ResumeData = {
   personalInfo: { 
     fullName: 'WALTER TETSUO', 
     city: 'Suzano', 
-    state: 'SP', 
+    state: 'SP (CEP: 08615-180)', 
     phone: '(11) 95091-6614', 
     email: 'wtm.tetsuo@gmail.com', 
     linkedin: '' 
   },
   targetJob: 'Especialista em Logística e Operações',
   targetJobDescription: '',
-  objective: 'Profissional dinâmico com mais de 4 anos de atuação em logística e gestão de centros de distribuição de alta performance (Mercado Livre e JadLog). Especialista em controle de inventário, fluxos de expedição e otimização de picking. Expertise em suporte operacional e gestão de devoluções com foco em agilidade na resolução de problemas e redução de gargalos logísticos.',
+  objective: 'Profissional dinâmico com sólida trajetória em logística e gestão de centros de distribuição de alta performance (JadLog, Shopee e Mercado Livre). Especialista em controle de inventário, fluxos de expedição e otimização de picking. Expertise em suporte operacional a motoristas e gestão de devoluções com foco em agilidade na resolução de problemas e conformidade SLA.',
   experience: [
     { 
-      id: '1', 
+      id: 'jad', 
       company: 'JadLog', 
       role: 'Assistente de Logística e Operações', 
-      startDate: '09/2023', 
-      endDate: '01/2025', 
-      description: '- Gerenciei fluxos de expedição e triagem de pedidos de alta volumetria.\n- Realizei controle rigoroso de inventário e otimizei o processo de picking, reduzindo erros de separação em 12%.\n- Prestei suporte operacional a motoristas e liderei a gestão de devoluções com foco em SLA.' 
+      startDate: '08/2025', 
+      endDate: '02/2026', 
+      description: '- Gestão de fluxos de expedição e triagem em hub logístico de alta volumetria.\n- Controle de inventário e otimização de rotas de picking para redução de gargalos.\n- Suporte operacional a frotas e monitoramento de KPIs de entrega.' 
     },
     { 
-      id: '2', 
+      id: 'shp', 
+      company: 'Shopee', 
+      role: 'Auxiliar de Logística', 
+      startDate: '01/2025', 
+      endDate: '08/2025', 
+      description: '- Atuação em centro de distribuição focado em triagem e separação de grandes volumes de pacotes.\n- Conferência de mercadoria e operação via coletor de dados em sistemas WMS.\n- Garantia de produtividade em metas diárias agressivas de expedição.' 
+    },
+    { 
+      id: 'ml', 
       company: 'Mercado Livre (Fulfillment)', 
       role: 'Auxiliar de Logística', 
       startDate: '06/2024', 
       endDate: '01/2025', 
-      description: '- Atuei na operação de Fulfillment em ambiente de ritmo acelerado.\n- Responsável pela conferência de NF, recebimento e estocagem via sistemas WMS.\n- Contribuí para bater metas diárias de produtividade, mantendo 99% de acurácia no inventário.' 
-    },
-    { 
-      id: '3', 
-      company: 'Suzano EPI', 
-      role: 'Assistente de Marketing (Freelance)', 
-      startDate: '01/2021', 
-      endDate: '08/2021', 
-      description: '- Gerenciei tráfego pago e campanhas digitais para aumento de visibilidade de produtos.\n- Otimizei processos de cotação e pesagem, garantindo agilidade no despacho.' 
+      description: '- Operação logística de ponta a ponta em ambiente de Fulfillment.\n- Conferência de NF-e, recebimento e armazenamento estratégico para otimização de espaço.\n- Manutenção de 99%+ de acurácia em inventário cíclico.' 
     }
   ],
   education: [
