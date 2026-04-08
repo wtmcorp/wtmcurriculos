@@ -214,6 +214,110 @@ textarea.form-control {
   border-bottom: 1.5px solid #000;
 }
 
+/* Hybrid Mode (Premium, Visual, still ATS friendly) */
+.hybrid-mode .resume-doc {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+.hybrid-mode h1 {
+  font-size: 28pt;
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  text-align: left;
+}
+
+.hybrid-mode .contact-info {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 9pt;
+  color: #475569;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+}
+
+.hybrid-mode .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hybrid-mode .section {
+  margin-bottom: 20px;
+}
+
+.hybrid-mode h2 {
+  font-size: 11pt;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hybrid-mode h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.hybrid-mode h3 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.hybrid-mode .company-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.hybrid-mode .role-title {
+  font-weight: 600;
+  color: #334155;
+  font-size: 10pt;
+  margin-bottom: 6px;
+}
+
+.hybrid-mode .date-loc {
+  color: #64748b;
+  font-size: 9pt;
+  font-weight: 500;
+}
+
+.hybrid-mode ul {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+
+.hybrid-mode li {
+  position: relative;
+  margin-bottom: 4px;
+  padding-left: 12px;
+}
+
+.hybrid-mode li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+
 /* Score Panel */
 .score-panel {
   width: 100%;
