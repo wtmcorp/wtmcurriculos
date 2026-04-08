@@ -20,6 +20,8 @@ const INITIAL_DATA: ResumeData = {
 
 import { LinkedInGenerator } from './components/LinkedInGenerator'
 
+import { AtsAssistant } from './components/AtsAssistant'
+
 function App() {
   const [data, setData] = useState<ResumeData>(INITIAL_DATA)
   const [score, setScore] = useState<AtsScore | null>(null)
@@ -44,6 +46,8 @@ function App() {
           </header>
           
           <ResumeForm data={data} setData={setData} onAnalyze={handleAnalyze} />
+          
+          <AtsAssistant data={data} setData={setData} />
           
         </div>
         <div className="right-panel preview-section">
