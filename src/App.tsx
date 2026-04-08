@@ -10,14 +10,14 @@ const INITIAL_DATA: ResumeData = {
   personalInfo: { 
     fullName: 'WALTER TETSUO', 
     city: 'Suzano', 
-    state: 'SP (CEP: 08615-180)', 
+    state: 'SP', 
     phone: '(11) 95091-6614', 
     email: 'wtm.tetsuo@gmail.com', 
-    linkedin: '' 
+    linkedin: 'linkedin.com/in/walter-tetsuo' 
   },
   targetJob: 'Especialista em Logística e Operações',
   targetJobDescription: '',
-  objective: 'Profissional dinâmico com sólida trajetória em logística e gestão de centros de distribuição de alta performance (JadLog, Shopee e Mercado Livre). Especialista em controle de inventário, fluxos de expedição e otimização de picking. Expertise em suporte operacional a motoristas e gestão de devoluções com foco em agilidade na resolução de problemas e conformidade SLA.',
+  objective: 'Especialista em Logística com foco em alta performance em centros de distribuição (JadLog, Shopee e Mercado Livre). Expertise em Last Mile, First Mile e otimização de Picking/Packing via WMS/TMS. Especialista em garantir SLAs agressivos, reduzir gargalos operacionais e liderar fluxos de expedição em ambientes de alta volumetria.',
   experience: [
     { 
       id: 'jad', 
@@ -25,7 +25,7 @@ const INITIAL_DATA: ResumeData = {
       role: 'Assistente de Logística e Operações', 
       startDate: '08/2025', 
       endDate: '02/2026', 
-      description: '- Gestão de fluxos de expedição e triagem em hub logístico de alta volumetria.\n- Controle de inventário e otimização de rotas de picking para redução de gargalos.\n- Suporte operacional a frotas e monitoramento de KPIs de entrega.' 
+      description: '- Liderança operacional na triagem diária de pacotes, garantindo 98%+ de conformidade no SLA de saída.\n- Otimização do fluxo de picking e inventário, reduzindo o tempo de processamento interno em cerca de 15%.\n- Suporte estratégico à frota de motoristas e monitoramento de KPIs de entrega First Mile.' 
     },
     { 
       id: 'shp', 
@@ -33,7 +33,7 @@ const INITIAL_DATA: ResumeData = {
       role: 'Auxiliar de Logística', 
       startDate: '01/2025', 
       endDate: '08/2025', 
-      description: '- Atuação em centro de distribuição focado em triagem e separação de grandes volumes de pacotes.\n- Conferência de mercadoria e operação via coletor de dados em sistemas WMS.\n- Garantia de produtividade em metas diárias agressivas de expedição.' 
+      description: '- Atuação em hub logístico de larga escala, batendo metas de produtividade diária em 110%.\n- Operação precisa de sistemas WMS para conferência de NF e expedição automatizada.\n- Redução drástica de erros de separação através da implementação de checklists de auditoria cíclica.' 
     },
     { 
       id: 'ml', 
@@ -41,16 +41,16 @@ const INITIAL_DATA: ResumeData = {
       role: 'Auxiliar de Logística', 
       startDate: '06/2024', 
       endDate: '01/2025', 
-      description: '- Operação logística de ponta a ponta em ambiente de Fulfillment.\n- Conferência de NF-e, recebimento e armazenamento estratégico para otimização de espaço.\n- Manutenção de 99%+ de acurácia em inventário cíclico.' 
+      description: '- Execução de excelência em processos de Fulfillment, garantindo agilidade no fluxo de entrada e saída (Inbound/Outbound).\n- Gestão de recebimento e conferência, mantendo acurácia de estoque acima de 99,8%.\n- Treinamento informal de novos colaboradores em práticas de segurança e produtividade no CD.' 
     }
   ],
   education: [
-    { id: 'ed1', institution: 'Ensino Médio Completo | Suzano - SP', degree: '', startDate: '', endDate: '' },
-    { id: 'ed2', institution: 'Formação de Brigadista: Combate a incêndio e Primeiros Socorros', degree: '', startDate: '', endDate: '' }
+    { id: 'ed1', institution: 'Formação Acadêmica', degree: 'Ensino Médio Completo', startDate: '', endDate: '' },
+    { id: 'ed2', institution: 'Treinamento Especializado', degree: 'Brigadista: Prevenção e Combate a Incêndio / Primeiros Socorros', startDate: '', endDate: '' }
   ],
   courses: [],
-  hardskills: ['WMS', 'TMS', 'ERP Logístico', 'Gestão de Inventário', 'Conferência de NF', 'Cross-docking', 'Picking / Packing', 'Ferramentas Office', 'Tráfego Pago'],
-  softskills: ['Liderança', 'Resolução de Problemas', 'Agilidade', 'Adaptação', 'Segurança do Trabalho (EPI)']
+  hardskills: ['WMS / TMS Avançado', 'Gestão de Inventário Cíclico', 'Last Mile & First Mile', 'Expedição de Alta Volumetria', 'Cross-docking', 'Fulfillment', 'Análise de KPIs Logísticos', 'Office 365'],
+  softskills: ['Liderança Operacional', 'Foco em SLA', 'Resolução de Conflitos', 'Mentalidade Lean', 'Segurança do Trabalho (EPI)']
 }
 
 import { LinkedInGenerator } from './components/LinkedInGenerator'
