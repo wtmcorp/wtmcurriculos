@@ -13,7 +13,7 @@ const INITIAL_DATA: ResumeData = {
     state: 'SP', 
     phone: '(11) 95091-6614', 
     email: 'wtm.tetsuo@gmail.com', 
-    linkedin: 'linkedin.com/in/walter-tetsuo' 
+    linkedin: '' 
   },
   targetJob: 'Especialista em Logística e Operações',
   targetJobDescription: '',
