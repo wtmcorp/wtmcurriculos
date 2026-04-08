@@ -218,18 +218,19 @@ textarea.form-control {
 .hybrid-mode .resume-doc {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: #1e293b;
-  font-size: 9.5pt; /* Slightly smaller for 1-page fit */
-  line-height: 1.45;
+  font-size: 10.5pt; /* Increased for readability */
+  line-height: 1.4;
 }
 
 .hybrid-mode h1 {
-  font-size: 24pt;
+  font-size: 26pt;
   color: #0f172a;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   font-weight: 800;
   letter-spacing: -1px;
   text-align: left;
 }
+
 
 .hybrid-mode .contact-info {
   margin-bottom: 16px;
@@ -338,14 +339,19 @@ textarea.form-control {
     min-height: auto;
   }
   @page {
-    margin: 1cm; /* Tight margins for 1-page */
+    margin: 0.8cm 1.2cm; /* Optimal balance for 1-page */
     size: A4 portrait;
   }
   .resume-doc {
-    font-size: 9pt !important; /* Force smaller text on print */
+    /* Rely on base 10.5pt but tighten line height if needed */
+    line-height: 1.35 !important;
   }
   .section {
-    margin-bottom: 10px !important;
+    margin-bottom: 8px !important;
+  }
+  h2 {
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
   }
 }
 

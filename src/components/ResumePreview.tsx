@@ -91,39 +91,40 @@ export const ResumePreview: React.FC<ResumePreviewProps> = ({ data, mode }) => {
         </div>
       )}
 
-      {/* EDUCATION */}
-      {education.length > 0 && (
-        <div className="section">
-          <h2>
-            {mode === 'hybrid' && <GraduationCap size={16} />}
-            Formação Acadêmica
-          </h2>
-          {education.map((edu, idx) => (
-            <div key={idx} style={{ marginBottom: '8px' }}>
-              <h3 className="company-name">{edu.institution}</h3>
-              <div className="role-title">{edu.degree}</div>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {/* SKILLS */}
-      {showSkills && (
-        <div className="section">
-          <h2>
-            {mode === 'hybrid' && <Award size={16} />}
-            Competências Técnicas
-          </h2>
-          <p style={{ marginTop: '5px', fontSize: '10pt' }}>
-            <strong>Hard Skills:</strong> {hardskills.join(', ')}
-          </p>
-          {softskills.length > 0 && (
-            <p style={{ marginTop: '4px', fontSize: '10pt' }}>
-              <strong>Soft Skills:</strong> {softskills.join(', ')}
+      {/* SKILLS & EDUCATION (TWO COLUMNS TO SAVE SPACE) */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '20px', marginTop: '10px' }}>
+        {showSkills && (
+          <div className="section" style={{ marginBottom: 0 }}>
+            <h2>
+              {mode === 'hybrid' && <Award size={16} />}
+              Skills
+            </h2>
+            <p style={{ fontSize: '9pt', lineHeight: 1.3 }}>
+              <strong>Técnicas:</strong> {hardskills.join(', ')}
             </p>
-          )}
-        </div>
-      )}
+            {softskills.length > 0 && (
+              <p style={{ fontSize: '9pt', marginTop: '4px', lineHeight: 1.3 }}>
+                <strong>Soft:</strong> {softskills.join(', ')}
+              </p>
+            )}
+          </div>
+        )}
+
+        {education.length > 0 && (
+          <div className="section" style={{ marginBottom: 0 }}>
+            <h2>
+              {mode === 'hybrid' && <GraduationCap size={16} />}
+              Formação
+            </h2>
+            {education.map((edu, idx) => (
+              <div key={idx} style={{ marginBottom: '4px' }}>
+                <div style={{ fontWeight: 700, fontSize: '9pt' }}>{edu.degree || edu.institution}</div>
+                {edu.degree && <div style={{ fontSize: '8pt', color: '#64748b' }}>{edu.institution}</div>}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
